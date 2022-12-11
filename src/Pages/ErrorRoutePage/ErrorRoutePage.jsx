@@ -1,14 +1,14 @@
 import { useRouteError } from 'react-router-dom';
 
 export const ErrorRoutePage = () => {
-  const error = useRouteError();
+  const { status, statusText, message, error } = useRouteError();
 
   return (
     <div>
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
+      <h1>Error code: {status}</h1>
+      <p>{error.message}</p>
       <p>
-        <i>{error.statusText || error.message}</i>
+        <i>{statusText || message}</i>
       </p>
     </div>
   );
