@@ -7,11 +7,20 @@ const createStyles = (customVariant) => {
   }
 };
 
-export const CustomButton = ({ label = 'label', customVariant }) => {
+export const CustomButton = ({
+  label = 'label',
+  customVariant,
+  onClickHandler = () => {},
+}) => {
   const styles = createStyles(customVariant);
 
   return (
-    <Button variant='contained' size='large' sx={styles}>
+    <Button
+      variant='contained'
+      size='large'
+      sx={styles}
+      onClick={onClickHandler}
+    >
       {label}
     </Button>
   );
